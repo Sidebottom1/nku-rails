@@ -12,7 +12,7 @@ class UsersController < ApplicationController
     @maker = Maker.new(maker_params)
     
     if @maker.save
-      redirect_to @maker
+      redirect_to @maker, notice: "You have successfully created your student profile."
     else
       render 'new'
     end
@@ -37,7 +37,8 @@ class UsersController < ApplicationController
     @maker = Maker.find(params[:id])
     
     if @maker.update(params[:maker].permit(:name, :nickname, :email, :imageURL))
-      redirect_to @maker
+      
+      redirect_to @maker, flash: "You have successfully edited your profile."
     else
       render 'edit'
     end
