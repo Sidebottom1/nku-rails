@@ -38,7 +38,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     
-    if @user.update(params[:user].permit(:name, :nickname, :email, :imageURL))
+    if @user.update(params[:user].permit(:name, :nickname, :email, :image_url))
       
       redirect_to @user, flash: "You have successfully edited your profile."
     else
@@ -48,7 +48,7 @@ class UsersController < ApplicationController
     
   private
     def user_params
-      params.require(:user).permit(:name, :nickname, :email, :imageURL)
+      params.require(:user).permit(:name, :nickname, :email, :image_url)
     end
   
 end
