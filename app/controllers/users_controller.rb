@@ -1,11 +1,11 @@
 class UsersController < ApplicationController
   
-  def new
-    @maker = Maker.new
+  def index
+    @users = Maker.all
   end
   
-  def index
-    @maker = Maker.all
+  def new
+    @maker = Maker.new
   end
   
   def create
