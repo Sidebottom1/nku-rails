@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  include Gravtastic
+  is_gravtastic
   
   def index
     @makers = Maker.all
