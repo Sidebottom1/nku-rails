@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   
   def index
-    @users = Maker.all
+    @makers = Maker.all
   end
   
   def new

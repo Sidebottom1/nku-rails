@@ -10,11 +10,13 @@
     <th></th>
   </tr>
 
-  <% @users.each do |user| %>
+  <% @makers.each do |maker| %>
     <tr>
-      <td><%= post.title %></td>
-      <td><%= post.text %></td>
-      <td><%= link_to 'Show', post %></td>
+      <td><%= maker.name %></td>
+      <td><%= maker.nickname %></td>
+      <td><%= maker.email %></td>
+      <td><%= maker.imageURL %></td>
+      <td><%= link_to 'Show', maker %></td>
       <td><%= link_to 'Edit', edit_maker_path(maker) %></td>
     </tr>
   <% end %>
