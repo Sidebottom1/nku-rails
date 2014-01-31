@@ -1,6 +1,6 @@
 <h1>New User</h1>
 
-<%= form_for :create do |f| %>
+<%= form_for :maker, url: users_path do |f| %>
   <p>
     <%= f.label :name %><br>
     <%= f.text_field :name %>
