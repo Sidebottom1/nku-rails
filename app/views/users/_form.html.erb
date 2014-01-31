@@ -1,10 +1,10 @@
-<%= form_for @maker do |f| %>
-  <% if @maker.errors.any? %>
+<%= form_for @user do |f| %>
+  <% if @user.errors.any? %>
   <div id="error_explanation">
-    <h2><%= pluralize(@maker.errors.count, "error") %> prohibited
+    <h2><%= pluralize(@user.errors.count, "error") %> prohibited
       this post from being saved:</h2>
     <ul>
-    <% @maker.errors.full_messages.each do |msg| %>
+    <% @user.errors.full_messages.each do |msg| %>
       <li><%= msg %></li>
     <% end %>
     </ul>

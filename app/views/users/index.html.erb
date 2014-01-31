@@ -10,14 +10,14 @@
     <th></th>
   </tr>
 
-  <% @makers.each do |maker| %>
+  <% @users.each do |user| %>
     <tr>
-      <td><%= maker.name %></td>
-      <td><%= maker.nickname %></td>
-      <td><%= maker.email %></td>
-      <td><%= maker.imageURL %></td>
-      <td><%= link_to 'Show', maker %></td>
-      <td><%= link_to 'Edit', edit_maker_path(maker) %></td>
+      <td><%= user.name %></td>
+      <td><%= user.nickname %></td>
+      <td><%= user.email %></td>
+      <td><%= user.imageURL %></td>
+      <td><%= link_to 'Show', user %></td>
+      <td><%= link_to 'Edit', edit_user_path(user) %></td>
     </tr>
   <% end %>
 </table>
