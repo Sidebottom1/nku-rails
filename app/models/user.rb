@@ -1,3 +1,5 @@
 class User < ActiveRecord::Base
-  belongs_to :maker
+  validates :name, presence: true
+  include Gravtastic
+  gravtastic :email
 end

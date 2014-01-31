@@ -3,52 +3,52 @@ class UsersController < ApplicationController
   is_gravtastic
   
   def index
-    @makers = Maker.all
+    @users = User.all
   end
   
   def new
-    @maker = Maker.new
+    @user = User.new
   end
   
   def create
-    @maker = Maker.new(maker_params)
+    @user = User.new(user_params)
     
-    if @maker.save
-      redirect_to @maker, notice: "You have successfully created your student profile."
+    if @user.save
+      redirect_to @user, notice: "You have successfully created your student profile."
     else
       render 'new'
     end
   end
   
   def destroy
-    @maker = Maker.find(params[:id])
-    @maker.destroy
+    @user = User.find(params[:id])
+    @user.destroy
 
-    redirect_to maker_path
+    redirect_to user_path
   end
     
   def show
-    @maker = Maker.find(params[:id])
+    @user = User.find(params[:id])
   end
   
   def edit
-    @maker = Maker.find(params[:id])
+    @user = User.find(params[:id])
   end
     
   def update
-    @maker = Maker.find(params[:id])
+    @user = User.find(params[:id])
     
-    if @maker.update(params[:maker].permit(:name, :nickname, :email, :imageURL))
+    if @user.update(params[:user].permit(:name, :nickname, :email, :imageURL))
       
-      redirect_to @maker, flash: "You have successfully edited your profile."
+      redirect_to @user, flash: "You have successfully edited your profile."
     else
       render 'edit'
     end
   end
     
   private
-    def maker_params
-      params.require(:maker).permit(:name, :nickname, :email, :imageURL)
+    def user_params
+      params.require(:user).permit(:name, :nickname, :email, :imageURL)
     end
   
 end
