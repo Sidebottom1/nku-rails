@@ -1,0 +1,29 @@
+<h1>New User</h1>
+
+<%= form_for :create do |f| %>
+  <p>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </p>
+
+  <p>
+    <%= f.label :nickname %><br>
+    <%= f.text_field :nickname %>
+  </p>
+
+  <p>
+    <%= f.label :email %><br>
+    <%= f.text_field :email %>
+  </p>
+
+  <p>
+    <%= f.label :imageURL %><br>
+    <%= f.text_field :imageURL %>
+  </p>
+
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', users_path %>
