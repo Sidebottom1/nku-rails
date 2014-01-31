@@ -40,7 +40,7 @@ class UsersController < ApplicationController
     
     if @user.update(params[:user].permit(:name, :nickname, :email, :image_url))
       
-      redirect_to @user, flash: "You have successfully edited your profile."
+      redirect_to @user, notice: "You have successfully edited your profile."
     else
       render 'edit'
     end
