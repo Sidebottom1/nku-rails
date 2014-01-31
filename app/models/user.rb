@@ -1,4 +1,3 @@
 class User < ActiveRecord::Base
-  include Gravtastic
-  gravtastic
+  belongs_to :maker
 end

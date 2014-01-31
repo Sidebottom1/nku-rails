@@ -1,4 +1,6 @@
 class Maker < ActiveRecord::Base
-  belongs_to :user
+  has_many :makers
   validates :name, presence: true, length: { minimum: 5}
+  include Gravtastic
+  gravtastic
 end
