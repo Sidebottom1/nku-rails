@@ -16,6 +16,8 @@ gem 'jquery-rails'
 
 gem 'gravtastic'
 
+gem 'bootstrap-sass', '~> 3.1.0'
+
 group :development, :test do
   gem 'byebug'
 end
