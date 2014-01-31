@@ -1,0 +1,21 @@
+<h1>Listing users</h1>
+<%= link_to 'New user', new_user_path %>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Nickname</th>
+    <th>Email</th>
+    <th>ImageURL</th>
+    <th></th>
+    <th></th>
+  </tr>
+
+  <% @makers.each do |maker| %>
+    <tr>
+      <td><%= post.title %></td>
+      <td><%= post.text %></td>
+      <td><%= link_to 'Show', post %></td>
+      <td><%= link_to 'Edit', edit_maker_path(maker) %></td>
+    </tr>
+  <% end %>
+</table>
