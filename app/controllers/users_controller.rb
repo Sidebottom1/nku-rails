@@ -19,13 +19,6 @@ class UsersController < ApplicationController
       render 'new'
     end
   end
-  
-  def destroy
-    @user = User.find(params[:id])
-    @user.destroy
-
-    redirect_to user_path
-  end
     
   def show
     @user = User.find(params[:id])
@@ -38,7 +31,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     
-    if @user.update(params[:user].permit(:name, :nickname, :email, :image_url))
+    if @user.update(params[:user].permit(:name, :nickname, :email, :image_url, :password_digest))
       
       redirect_to @user, notice: "You have successfully edited your profile."
     else
@@ -48,7 +41,7 @@ class UsersController < ApplicationController
     
   private
     def user_params
-      params.require(:user).permit(:name, :nickname, :email, :image_url)
+      params.require(:user).permit(:name, :nickname, :email, :image_url, :password_digest)
     end
   
 end

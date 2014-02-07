@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
-
-  validates :name, presence: true
+  has_secure_password
+  validates_presence_of :password, :on => :create
   include Gravtastic
   gravtastic :email
 end

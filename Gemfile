@@ -14,7 +14,7 @@ gem 'sass-rails', '~> 4.0.0'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 
-gem 'bcrypt-ruby'
+gem 'bcrypt-ruby', '~> 3.1.2'
 
 gem 'gravtastic'
 
