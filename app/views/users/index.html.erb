@@ -1,6 +1,7 @@
 <h1>List of Users</h1>
 <%- if current_user.present? -%>
   <%= link_to 'Log out', logout_path %>
+  <%= link_to 'I am here!', new_attendance_path %>
 <%- else -%>
   <%= link_to 'Sign up', new_user_path %>
   <%= link_to 'Log in', new_session_path %>

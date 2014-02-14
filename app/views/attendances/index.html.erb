@@ -1,0 +1,17 @@
+<h1>Attendance Table</h1>
+
+<table>
+  <tr>
+    <th>Attended_On</th>
+    <th>Seat</th>
+  </tr>
+
+  <% @attendances.each do |attendance| %>
+    <tr>
+      <td><%= attendance.attended_on %></td>
+      <td><%= attendance.seat %></td>
+    </tr>
+  <% end %>
+</table>
+
+<%= link_to 'Back', users_path %>
