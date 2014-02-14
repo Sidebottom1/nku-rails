@@ -10,9 +10,10 @@ class AttendancesController < ApplicationController
   
   def create
     @attendance = Attendance.new(attendance_params)
-    
+    @attendance.user = current_user
+    @attendance.attended_on = Date.today
     if @attendance.save
-      redirect_to @attendance, notice: "You have successfully logged your attendance."
+      redirect_to attendances_path, notice: "You have successfully logged your attendance."
     else
       render 'new'
     end
@@ -20,6 +21,6 @@ class AttendancesController < ApplicationController
     
   private
     def attendance_params
-      params.require(:attendance).permit(:attendance, :attended_on, :seat)
+      params.require(:attendance).permit(:seat)
     end
 end
