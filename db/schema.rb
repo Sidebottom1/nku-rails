@@ -14,7 +14,12 @@
 ActiveRecord::Schema.define(version: 20140207222744) do
 
   create_table "attendances", force: true do |t|
+    t.date    "attended_on"
+    t.integer "seat"
+    t.integer "user_id"
   end
+
+  add_index "attendances", ["user_id"], name: "index_attendances_on_user_id"
 
   create_table "comments", force: true do |t|
     t.string   "commenter"
