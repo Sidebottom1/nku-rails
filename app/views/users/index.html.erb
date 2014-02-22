@@ -6,42 +6,50 @@
   <%= link_to 'Sign up', new_user_path %>
   <%= link_to 'Log in', new_session_path %>
 <%- end %>
+
+<%= form_tag users_path, method: :get do %>
+  <p>
+    <%= date_field_tag(:name, :date) %>
+  </p>
+<% end %>
+
 <table>
+  <th>Seats 1</th>
   <tr>
-    <th>Seats 1</th>
-    <td><%= @users.in_seat(1).each do |user| %></td>
-    <td><%= user.name %></td>
-    <td><%= user.image_url %></td>
+    <%= @users.in_seat(1).each do |user| %>
+      <td><%= user.name %></td>
+      <td><%= user.image_url %></td>
     <% end %>
   </tr>
+  <th>Seats 2</th>  
   <tr>
-    <th>Seats 2</th>
-    <td><%= @users.in_seat(2).each do |user| %></td>
-    <td><%= user.name %></td>
-    <td><%= user.image_url %></td>
+    <%= @users.in_seat(2).each do |user| %>
+      <td><%= user.name %></td>
+      <td><%= user.image_url %></td>
     <% end %>
   </tr>
-  <tr>
-    <th>Seats 3</th>
-    <td><%= @users.in_seat(3).each do |user| %></td>
-    <td><%= user.name %></td>
-    <td><%= user.image_url %></td>
-    <% end %>
+</table>
+<table>
+  <th>Seats 3</th>      
+  <tr>   
+     <%= @users.in_seat(3).each do |user| %>
+       <td><%= user.name %></td>
+       <td><%= user.image_url %></td>
+     <% end %>  
   </tr>
-  <tr>
-    <th>Seats 4</th>
-    <td><%= @users.in_seat(4).each do |user| %></td>
-    <td><%= user.name %></td>
-    <td><%= user.image_url %></td>
-    <% end %>
-  </tr>
-  
-  <tr>
-    <th>Absent</th>
-    <td><%= @users.absent.each do |user| %></td>
-    <td><%= user.name %></td>
-    <% end %>
-  </tr>
-
-
+  <th>Seats 4</th>
+  <tr>    
+     <%= @users.in_seat(3).each do |user| %>
+       <td><%= user.name %></td>
+       <td><%= user.image_url %></td>
+     <% end %> 
+   </tr>
+</table>
+<table>
+   <th>Absent</th>
+   <tr>
+     <%= @users.absent.each do |user| %>
+       <td><%= user.name %></td>
+     <% end %>
+   </tr>
 </table>
