@@ -12,10 +12,15 @@ class AttendancesController < ApplicationController
     @attendance = Attendance.new(attendance_params)
     @attendance.user = current_user
     @attendance.attended_on = Date.today
-    if @attendance.save
-      redirect_to attendances_path, notice: "You have successfully logged your attendance."
+    if (Attendance.where(:attended_on => Date.today,:user_id => current_user)).first == nil
+      if @attendance.save
+        redirect_to attendances_path, notice: "You have successfully logged your attendance."
+      else
+        render 'new'
+      end
     else
-      render 'new'
+      flash[:error] = "You have already created an attendance for today."
+      redirect_to users_path
     end
   end
     
