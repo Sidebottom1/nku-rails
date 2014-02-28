@@ -4,6 +4,11 @@ class UsersController < ApplicationController
   
   def index
     @users = User.all
+    if params[:date].present?
+      @date = params[:date]
+    else
+      @date = Date.today
+    end
   end
   
   def new
