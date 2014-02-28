@@ -1,7 +1,11 @@
 class AttendancesController < ApplicationController
   
   def index
-    @attendances = Attendance.all
+    if params[:user_id].present?
+      @attendances = User.find(params[:user_id]).attendances
+    else
+      @attendances = Attendance.all
+    end
   end
   
   def new
