@@ -21,8 +21,6 @@ ActiveRecord::Schema.define(version: 20140207222744) do
 
   add_index "attendances", ["user_id"], name: "index_attendances_on_user_id"
 
-  add_index "comments", ["post_id"], name: "index_comments_on_post_id"
-
   create_table "users", force: true do |t|
     t.string "name"
     t.string "nickname"
