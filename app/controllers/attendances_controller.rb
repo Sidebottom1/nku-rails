@@ -24,7 +24,7 @@ class AttendancesController < ApplicationController
       end
     else
       flash[:error] = "You have already created an attendance for today."
-      redirect_to users_path
+      redirect_to seating_chart_users_path
     end
   end
     

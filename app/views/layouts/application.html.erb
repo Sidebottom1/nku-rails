@@ -10,15 +10,15 @@
 <body>
   <div>
     <%- if current_user.present? -%>
-      <%= link_to 'Seating Chart', seating_chart_users_path %>
-      <%= link_to 'All Attendances', attendances_path %>
-      <%= link_to 'Student Index', users_path %>
-      <%= link_to 'Edit your profile', edit_user_path(current_user.id) %>
+      <%= link_to ' Seating Chart ', seating_chart_users_path %>
+      <%= link_to ' All Attendances ', attendances_path %>
+      <%= link_to ' Student Index ', users_path %>
+      <%= link_to ' Edit your profile ', edit_user_path(current_user.id) %>
     <%- end %>
     <div class="pull-right">
       <%- if current_user.present? -%>
-        <%= link_to 'Log out', logout_path %>
-        <%= link_to 'I am here!', new_attendance_path %>
+        <%= link_to ' Log out ', logout_path %>
+        <%= link_to ' I am here! ', new_attendance_path %>
       <%- else -%>
         <%= link_to 'Sign up', new_user_path %>
         <%= link_to 'Log in', new_session_path %>
