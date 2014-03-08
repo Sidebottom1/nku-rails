@@ -4,6 +4,8 @@ class UsersController < ApplicationController
   skip_before_action :require_login, only: [:new, :create]
   def index
     @users = User.all
+  end
+  def seating_chart
     if params[:date].present?
       @date = params[:date]
     else
