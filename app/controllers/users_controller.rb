@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   include Gravtastic
   is_gravtastic
-  
+  skip_before_action :require_login, only: [:new, :create]
   def index
     @users = User.all
     if params[:date].present?
@@ -19,6 +19,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     
     if @user.save
+      session[:user_id] = @user.id
       redirect_to @user, notice: "You have successfully created your student profile."
     else
       render 'new'
