@@ -1,5 +1,6 @@
 class Assignment < ActiveRecord::Base
-
+  belongs_to :user
+  
   def percentage
     (score / total) * 100
   end

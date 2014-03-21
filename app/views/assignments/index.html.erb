@@ -31,9 +31,13 @@
         <td><%= assignment.name %></td>
         <td><%= assignment.score %></td>
         <td><%= assignment.total %></td>
-        <td><%= assignment.percentage %></td>
+        <td><%= assignment.percentage %>%</td>
       </tr>
     <% end %>
+    <tr>
+      <th>Current Grade</th>
+      <td><%= current_user.assignments.average_percentage %>%</td>
+    </tr>
   </table>
 <% end %>
 

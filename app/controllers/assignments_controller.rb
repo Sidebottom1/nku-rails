@@ -1,13 +1,15 @@
 class AssignmentsController < ApplicationController
-  before_action do |controller|
-    redirect_to users_seating_chart unless controller.send(:admin?)
-  end
+  before_action :require_admin, only: [:new, :create]
   
   def index
-    if params[:user_id].admin?
-      @assignments = Assignment.all
+    if current_user.admin?
+      if params[:user_id].present?
+        @assignments = User.find(params[:user_id]).assignments
+      else
+        @assignments = Assignment.all
+      end
     else
-      @assignments = User.find(params[:user_id]).assignments
+      @assignments = current_user.assignments
     end
   end
   
@@ -16,10 +18,10 @@ class AssignmentsController < ApplicationController
   end
   
   def create
-    @assigment = Assignment.new(assignment_params)
+    @assignment = Assignment.new(assignment_params)
     
     if @assignment.save
-      redirect_to users_index, notice: "You have successfully created the assignment."
+      redirect_to users_path, notice: "You have successfully created the assignment."
     else
       render 'new'
     end
@@ -27,6 +29,6 @@ class AssignmentsController < ApplicationController
   
   private
     def assignment_params
-      params.require().permit(:user, :name, :score, :total)
+      params.require(:assignment).permit(:user_id, :name, :score, :total)
     end
 end

@@ -15,10 +15,7 @@
       <%= link_to ' Student Index ', users_path %>
       <%= link_to ' Edit your profile ', edit_user_path(current_user.id) %>
       <%- if current_user.admin? -%>
-<<<<<<< HEAD
         <%= link_to ' All Assignments ', assignments_path %>        
-=======
->>>>>>> master
         <%= link_to ' Create Assignment ', new_assignment_path %>
       <%- else -%>
         <%= link_to ' My Assignments ', assignments_path %>
