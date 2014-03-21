@@ -1,7 +1,8 @@
 NkuRails::Application.routes.draw do
   get "logout" => "sessions#destroy", :as => "logout"
-  resources :sessions, :attendances
+  resources :sessions, :attendances, :assignments
   resources :users do
+    post 'upload', on: :collection
     get 'seating_chart', on: :collection
   end
   

@@ -4,6 +4,10 @@ class User < ActiveRecord::Base
   validates_presence_of :password, :on => :create
   validates :email, :uniqueness => true
   
+  def admin?
+    false
+  end
+    
   def self.in_seat(seat, now=Date.today)
     present(now).where('attendances.seat = ?', seat)
   end

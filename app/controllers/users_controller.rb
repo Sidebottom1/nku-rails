@@ -2,9 +2,15 @@ class UsersController < ApplicationController
   include Gravtastic
   is_gravtastic
   skip_before_action :require_login, only: [:new, :create]
+  
   def index
     @users = User.all
   end
+  
+  def admin_index
+    
+  end
+  
   def seating_chart
     if params[:date].present?
       @date = params[:date]

@@ -1,0 +1,41 @@
+<h1>Assignments Table</h1>
+
+
+<% if current_user.admin? %>
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Score</th>
+      <th>Total</th>
+      <th>Percentage</th>
+    </tr>
+    <% @assignments.each do |assignment| %>
+      <tr>
+        <td><%= link_to assignment.user.name, assignments_path(user_id: assignment.user.id) %></td>
+        <td><%= assignment.name %></td>
+        <td><%= assignment.score %></td>
+        <td><%= assignment.total %></td>
+      </tr>
+    <% end %>
+  </table>
+<% else %>
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Score</th>
+      <th>Total</th>
+      <th>Percentage</th>
+    </tr>
+    <% @assignments.each do |assignment| %>
+      <tr>
+        <td><%= assignment.name %></td>
+        <td><%= assignment.score %></td>
+        <td><%= assignment.total %></td>
+        <td><%= assignment.percentage %></td>
+      </tr>
+    <% end %>
+  </table>
+<% end %>
+
+
+<%= link_to 'Back', seating_chart_users_path %>
