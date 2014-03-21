@@ -6,11 +6,7 @@ class UsersController < ApplicationController
   def index
     @users = User.all
   end
-  
-  def admin_index
-    
-  end
-  
+
   def seating_chart
     if params[:date].present?
       @date = params[:date]
