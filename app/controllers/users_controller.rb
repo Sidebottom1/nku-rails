@@ -29,6 +29,11 @@ class UsersController < ApplicationController
       render 'new'
     end
   end
+  
+  def upload
+    StudentUploader.new(params[:file]).import
+    redirect_to users_path
+  end
     
   def show
     @user = User.find(params[:id])

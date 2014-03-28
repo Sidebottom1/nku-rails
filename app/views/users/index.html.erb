@@ -1,3 +1,9 @@
+<p>
+  <%= form_tag({action: :upload}, multipart: true) do %>
+    <%= file_field_tag 'picture' %>
+    <%= submit_tag 'import' %>
+  <% end %>
+</p>
 
 <% @users.each do |user| %>
 
