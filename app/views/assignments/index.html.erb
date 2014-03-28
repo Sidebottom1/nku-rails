@@ -1,5 +1,11 @@
-<h1>Assignments Table</h1>
+<p>
+  <%= form_tag({action: :upload}, multipart: true) do %>
+    <%= file_field_tag 'picture' %>
+    <%= submit_tag 'import' %>
+  <% end %>
+</p>
 
+<h1>Assignments Table</h1>
 
 <% if current_user.admin? %>
   <table>

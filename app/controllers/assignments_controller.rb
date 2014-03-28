@@ -1,6 +1,11 @@
 class AssignmentsController < ApplicationController
   before_action :require_admin, only: [:new, :create]
   
+  def upload
+    StudentUploader.new(params[:file]).import
+    redirect_to users_path
+  end
+  
   def index
     if current_user.admin?
       if params[:user_id].present?
