@@ -2,8 +2,9 @@ class AssignmentsController < ApplicationController
   before_action :require_admin, only: [:new, :create]
   
   def upload
-    StudentUploader.new(params[:file]).import
-    redirect_to users_path
+    require 'csv'
+    number = StudentUploader.new(params[:picture]).import
+    redirect_to users_path, notice: "#{number} assignment(s) were created."
   end
   
   def index
